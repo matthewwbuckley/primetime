@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  # api container
+  api:
+    build: ./api
+    expose:
+      - '8000'
+    ports:
+      - '8000:8000'
+    # volumes:
+    #   - ./api/src:/srv/app/primetime-api-docker/src
+    command: npm run dev
+  # front container
+  front:
+    build: ./front
+    expose:
+      - '3000'
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    # volumes:
+    #   - ./front/src:/srv/app/primetime-docker/src
+    #   - ./front/public:/srv/app/primetime-docker/public
+    links:
+      - api
+    command: npm run start
