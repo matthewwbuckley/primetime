@@ -6,17 +6,19 @@ In development this can be run in two ways with the default being a docker conta
 
 ### Running with Docker
 
-Docker will need to be installed on your system.
+Docker will need to be installed on your system. To run the container you can use:
 
 ```bash
   docker-compose up --build
 ```
 
-The Docker set-up does not have live updates and any changes will require a rebuild.
+Once the container is running it should be viewed at http://192.168.99.100:3000/. This was developed using Docker Toolbox which does not support localhost. If you have Docker Desktop and would like to use localhost instead then you will need to follow the instructions in the in "Running with concurrent" to change the package.json file.
+
+The Docker set-up does not have live updates and any changes will require a rebuild for changes to take effeft.
 
 ### Running with concurrent
 
-Before running with concurrent `./front/package-lock.json` will need to be modified. Chnage the following lines from:
+Before running with concurrent `./front/package.json` will need to be modified. Chnage the following lines from:
 
 ```json
   "localProxy": "http://localhost:8000/",
